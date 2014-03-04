@@ -412,7 +412,7 @@ class TestOfInsightsGeneratorPlugin extends ThinkUpUnitTestCase {
             $merge_vars[$mv->name] = $mv->content;
         }
         $this->assertPattern('/http:\/\/downtonabb.ey\/.*\?u=/', $merge_vars['insights'], 'Insights URL contains host');
-        if ( version_compare(PHP_VERSION, '5.2', '>') ) {
+        if ( version_compare(PHP_VERSION, '5.3', '>=') ) {
             /**
              * PHP 5.2 doesn't handle this accented character the way 5.3+ do. It outputs
              * http://downtonabb.ey/?u=Bill+CÃµsby&amp;n=facebook&amp;d=2014-03-04&amp;s=frequency
