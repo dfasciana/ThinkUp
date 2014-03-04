@@ -559,7 +559,7 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
 
         //assert that page of insights includes from both private and public
         $dao = new InsightMySQLDAO();
-        $from = 0;
+        $from = '2012-01-01';
         $results = $dao->getAllOwnerInstanceInsightsSince(1, $from);
         $this->assertEqual(count($results), 7);
         $this->debug(Utils::varDumpToString($results[0]->related_data));
