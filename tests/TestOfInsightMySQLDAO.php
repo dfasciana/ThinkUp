@@ -529,31 +529,33 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
 
         //insert 2 insights for a private instance and 3 for a public instance
         $time_now = date("Y-m-d H:i:s");
+        $related_posts = self::getRelatedDataListOfPosts('twitter',3,3);
+        $this->debug($related_posts);
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-02', 'slug'=>'avg_replies_per_week',
         'instance_id'=>'1', 'text'=>'Retweet spike! Your post got retweeted 110 times',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-01', 'slug'=>'avg_replies_per_week',
         'instance_id'=>'2', 'text'=>'Retweet spike! Your post got retweeted 110 times',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-02', 'slug'=>'avg_replies_per_week',
         'instance_id'=>'2', 'text'=>'Retweet spike! Your post got retweeted 110 times',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-03', 'slug'=>'avg_replies_per_week',
         'instance_id'=>'2', 'text'=>'Retweet spike! Your post got retweeted 110 times',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-01', 'slug'=>'another_slug',
         'instance_id'=>'1', 'text'=>'Retweet spike! Your post got retweeted 110 times',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
         //insight with filename set to 'dashboard' shouldn't be returned
         $builders[] = FixtureBuilder::build('insights', array('date'=>'2012-05-01', 'slug'=>'another_slug',
         'instance_id'=>'1', 'text'=>'', 'filename'=>'dashboard',
         'emphasis'=>Insight::EMPHASIS_HIGH, 'time_generated'=>$time_now,
-        'related_data'=>self::getRelatedDataListOfPosts('twitter',3,3)));
+        'related_data'=>$related_posts));
 
         //assert that page of insights includes from both private and public
         $dao = new InsightMySQLDAO();
