@@ -351,12 +351,9 @@ class InsightMySQLDAO  extends PDODAO implements InsightDAO {
             $insight = new Insight($row);
             $insight->instance = new Instance($row);
             $insight->instance->avatar = $row['avatar'];
+            $insight->related_data = unserialize($row['related_data']);
+            $insight->date = $row['date']. " ".date('H').":".date('i');
             $insights[] = $insight;
-        }
-        foreach ($insights as $insight) {
-            $insight->related_data = unserialize($insight->related_data);
-            //assume insight came at same time of day as now for relative day notation
-            $insight->date = $insight->date. " ".date('H').":".date('i');
         }
         return $insights;
     }
