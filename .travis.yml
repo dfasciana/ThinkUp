@@ -5,4 +5,4 @@ php:
 
 before_script: extras/dev/travis/before.sh
 
-script: php tests/all_plugin_tests.php
+script: TEST_DEBUG=1 php webapp/plugins/insightsgenerator/tests/TestOfInsightsGeneratorPlugin.php -t testMandrillHTMLDaily

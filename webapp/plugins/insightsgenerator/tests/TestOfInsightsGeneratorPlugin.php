@@ -415,6 +415,7 @@ class TestOfInsightsGeneratorPlugin extends ThinkUpUnitTestCase {
         //Should preserve accented character
         $this->assertPattern('/http:\/\/downtonabb.ey\/.*\?u=Bill\+Cõsby/', $merge_vars['insights'],
             'Insight URL should not contain spaces');
+        $this->debug($merge_vars['insights']);
         $this->assertNoPattern('/http:\/\/downtonabb.ey\/.*\?u=Bill\+Cosby/', $merge_vars['insights'],
             'Insight URL should not contain spaces');
         $this->assertPattern('/assets\/img\/icons\/facebook-gray\.png/', $merge_vars['insights'],
