@@ -346,6 +346,7 @@ class InsightMySQLDAO  extends PDODAO implements InsightDAO {
         if ($this->profiler_enabled) { Profiler::setDAOMethod(__METHOD__); }
         $ps = $this->execute($q, $vars);
         $rows = $this->getDataRowsAsArrays($ps);
+        print_r($rows);
         $insights = array();
         foreach ($rows as $row) {
             $insight = new Insight($row);
