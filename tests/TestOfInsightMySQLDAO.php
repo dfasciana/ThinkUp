@@ -572,6 +572,7 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
             }
         }
         $results = $dao->getAllOwnerInstanceInsightsSince(2, $from);
+        $this->debug(Utils::varDumpToString($results));
         $this->assertEqual(count($results), 3);
         foreach ($results as $result) {
             $this->assertIsA($result, 'Insight');
