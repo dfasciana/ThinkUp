@@ -121,9 +121,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "Matt Jacobs",
             "author_avatar" => "http://pbs.twimg.com/profile_images/14177592/twitter_normal.jpg",
             "author_follower_count" => null,
-            "post_text"=>"I like cookies",
-            // "post_text" => "The one and only @zefrank wants to bring back The Show. Help him fund it. I'll give you a ".
-            //     "hug. http://t.co/tFdZbL4Y",
+            //"post_text"=>"I like cookies",
+            "post_text" => "The one and only @zefrank wants to bring back The Show. Help him fund it. I'll give you a ".
+                "hug. http://t.co/tFdZbL4Y",
             "is_protected" => null,
             "source" => "Tweet Button",
             "location" => "Brooklyn, NY, USA",
