@@ -82,9 +82,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "ThinkUp",
             "author_avatar" => "http://pbs.twimg.com/profile_images/2600723193/rvi01vw1b4mtq8gudcs6_normal.png",
             "author_follower_count" => null,
-            "post_text"=>"I like cookies",
-            // "post_text" => "Entrepreneur named us a Startup to Watch in 2014. Officially we're skeptical of these ".
-            //     "lists, but thanks @EntMagazine! http://t.co/Euiv1aMgVD",
+            //"post_text"=>"I like cookies",
+            "post_text" => "Entrepreneur named us a Startup to Watch in 2014. Officially we're skeptical of these ".
+                "lists, but thanks @EntMagazine! http://t.co/Euiv1aMgVD",
             "is_protected" => null,
             "source" => "Twitter for Mac",
             "location" => "New York, NY",

@@ -270,7 +270,7 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
             }
             $i++;
         }
-        $this->debug($insight->related_data);
+        //$this->debug($insight->related_data);
         $this->debug('Pre-insert length: '.strlen($insight->related_data));
         $serialized_related_data = serialize($insight->related_data);
         $this->debug('Pre-insert serialized length: '.strlen($serialized_related_data));
