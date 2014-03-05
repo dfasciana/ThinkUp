@@ -419,7 +419,6 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
         $this->assertEqual(sizeof($results), 11);
         $this->assertEqual($results[0]->text, 'Insight 1');
         $this->assertEqual($results[9]->text, 'Insight 10');
-        $this->debug(Utils::varDumpToString($results));
         $results = $dao->getPublicInsights($page_count=11, $page_number=2);
         $this->assertEqual($results[0]->text, 'Insight 11');
         $this->assertEqual($results[9]->text, 'Insight 20');
@@ -496,7 +495,6 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
         $this->assertEqual(sizeof($results), 11);
         $this->assertEqual($results[0]->text, 'Insight 1');
         $this->assertEqual($results[9]->text, 'Insight 10');
-        $this->debug(Utils::varDumpToString($results));
         $results = $dao->getAllInstanceInsights($page_count=11, $page_number=2);
         $this->assertEqual($results[0]->text, 'Insight 11');
         $this->assertEqual($results[9]->text, 'Insight 20');
@@ -562,19 +560,14 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
         $from = '2012-01-01';
         $results = $dao->getAllOwnerInstanceInsightsSince(1, $from);
         $this->assertEqual(count($results), 7);
-        $this->debug(Utils::varDumpToString($results[0]->related_data));
         foreach ($results as $result) {
             $this->assertIsA($result, 'Insight');
-            $this->debug(Utils::varDumpToString($result->related_data["posts"]));
             if (isset($result->related_data['posts'])) {
                 $this->assertEqual(count($result->related_data['posts']), 3);
                 $this->assertIsA($result->related_data['posts'][0], 'Post');
             }
         }
         $results = $dao->getAllOwnerInstanceInsightsSince(2, $from);
-        $this->debug(Utils::varDumpToString($results));
-        $unserialized = unserialize($related_posts);
-        $this->debug(Utils::varDumpToString($unserialized));
         $this->assertEqual(count($results), 3);
         foreach ($results as $result) {
             $this->assertIsA($result, 'Insight');
@@ -669,11 +662,9 @@ class TestOfInsightMySQLDAO extends ThinkUpInsightUnitTestCase {
         //Assert that a page of 10 insights with 1 extra comes back correctly
         $dao = new InsightMySQLDAO();
         $results = $dao->getAllOwnerInstanceInsights(1, $page_count=11, $page_number=1);
-        $this->debug(Utils::varDumpToString($results));
         $this->assertEqual(sizeof($results), 11);
         $this->assertEqual($results[0]->text, 'Insight 1');
         $this->assertEqual($results[9]->text, 'Insight 10');
-        $this->debug(Utils::varDumpToString($results));
         $results = $dao->getAllOwnerInstanceInsights(1, $page_count=11, $page_number=2);
         $this->assertEqual($results[0]->text, 'Insight 11');
         $this->assertEqual($results[9]->text, 'Insight 20');
