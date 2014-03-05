@@ -37,7 +37,7 @@ class Serializer {
         }
         $result = unserialize($serialized_string);
         if ($result === false) {
-            throw new SerializerException('String is unserializable');
+            throw new SerializerException('String is unserializable: '.$serialized_string);
         }
        return $result;
     }
