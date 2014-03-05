@@ -82,8 +82,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "ThinkUp",
             "author_avatar" => "http://pbs.twimg.com/profile_images/2600723193/rvi01vw1b4mtq8gudcs6_normal.png",
             "author_follower_count" => null,
-            "post_text" => "Entrepreneur named us a Startup to Watch in 2014. Officially we're skeptical of these ".
-                "lists, but thanks @EntMagazine! http://t.co/Euiv1aMgVD",
+            "post_text"=>"I like cookies",
+            // "post_text" => "Entrepreneur named us a Startup to Watch in 2014. Officially we're skeptical of these ".
+            //     "lists, but thanks @EntMagazine! http://t.co/Euiv1aMgVD",
             "is_protected" => null,
             "source" => "Twitter for Mac",
             "location" => "New York, NY",
@@ -120,8 +121,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "Matt Jacobs",
             "author_avatar" => "http://pbs.twimg.com/profile_images/14177592/twitter_normal.jpg",
             "author_follower_count" => null,
-            "post_text" => "The one and only @zefrank wants to bring back The Show. Help him fund it. I'll give you a ".
-                "hug. http://t.co/tFdZbL4Y",
+            "post_text"=>"I like cookies",
+            // "post_text" => "The one and only @zefrank wants to bring back The Show. Help him fund it. I'll give you a ".
+            //     "hug. http://t.co/tFdZbL4Y",
             "is_protected" => null,
             "source" => "Tweet Button",
             "location" => "Brooklyn, NY, USA",
@@ -158,8 +160,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "Matt Jacobs",
             "author_avatar" => "http://pbs.twimg.com/profile_images/14177592/twitter_normal.jpg",
             "author_follower_count" => null,
-            "post_text" => "Sneckdown (noun): Accumulation of snow on the street that reveals space that cars don’t".
-                " use. via @backspace http://t.co/VErShzyTLd",
+            "post_text"=>"I like cookies",
+            // "post_text" => "Sneckdown (noun): Accumulation of snow on the street that reveals space that cars don’t".
+            //     " use. via @backspace http://t.co/VErShzyTLd",
             "is_protected" => null,
             "source" => "Buffer",
             "location" => "Brooklyn, NY",
@@ -196,8 +199,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "ThinkUp",
             "author_avatar" => "http://pbs.twimg.com/profile_images/2600723193/rvi01vw1b4mtq8gudcs6_normal.png",
             "author_follower_count" => null,
-            "post_text" => "RT @jamesluscombe: Really loving @thinkup so far and it's only been 6 hrs. ".
-                "http://t.co/LJX175ezAg",
+            "post_text"=>"I like cookies",
+            // "post_text" => "RT @jamesluscombe: Really loving @thinkup so far and it's only been 6 hrs. ".
+            //     "http://t.co/LJX175ezAg",
             "is_protected" => null,
             "source" => "TweetDeck",
             "location" => "New York, NY",
@@ -235,7 +239,8 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "Kellan",
             "author_avatar" => "http://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png",
             "author_follower_count" => null,
-            "post_text" => "Dad being funny http://t.co/OdVVzWV6jl",
+            "post_text"=>"I like cookies",
+//            "post_text" => "Dad being funny http://t.co/OdVVzWV6jl",
             "is_protected" => 1,
             "source" => "iOS",
             "location" => null,
@@ -273,7 +278,8 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_avatar" => "http://pbs.twimg.com/profile_images/378800000771067498/".
                 "7229e32203e92559e972f13dd949b138_normal.jpeg",
             "author_follower_count" => null,
-            "post_text" => "Yoda, Stuart Freeborn and Irvin Kershner http://t.co/tMk0L1GoSX",
+//            "post_text" => "Yoda, Stuart Freeborn and Irvin Kershner http://t.co/tMk0L1GoSX",
+            "post_text"=>"I like cookies",
             "is_protected" => null,
             "source" => "Buffer",
             "location" => null,
