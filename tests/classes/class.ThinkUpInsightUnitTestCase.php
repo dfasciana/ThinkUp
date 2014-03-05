@@ -160,9 +160,9 @@ class ThinkUpInsightUnitTestCase extends ThinkUpUnitTestCase {
             "author_fullname" => "Matt Jacobs",
             "author_avatar" => "http://pbs.twimg.com/profile_images/14177592/twitter_normal.jpg",
             "author_follower_count" => null,
-            "post_text"=>"I like cookies",
-            // "post_text" => "Sneckdown (noun): Accumulation of snow on the street that reveals space that cars don’t".
-            //     " use. via @backspace http://t.co/VErShzyTLd",
+            //"post_text"=>"I like cookies",
+            "post_text" => "Sneckdown (noun): Accumulation of snow on the street that reveals space that cars don’t".
+                " use. via @backspace http://t.co/VErShzyTLd",
             "is_protected" => null,
             "source" => "Buffer",
             "location" => "Brooklyn, NY",
