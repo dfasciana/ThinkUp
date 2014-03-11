@@ -104,5 +104,4 @@ class TestOfCookieMySQLDAO extends ThinkUpUnitTestCase {
         $this->builders = null;
         parent::tearDown();
     }
-
 }

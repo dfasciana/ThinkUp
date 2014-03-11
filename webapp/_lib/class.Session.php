@@ -36,7 +36,7 @@ class Session {
      * Name for Long-Session Cookie
      * @var str
      */
-    const COOKIENAME = 'thinkup_session';
+    const COOKIE_NAME = 'thinkup_session';
 
     /**
      * Check if we have an active session.
@@ -47,9 +47,9 @@ class Session {
         if (SessionCache::isKeySet('user')) {
             return true;
         }
-        if (!empty($_COOKIE[self::COOKIENAME])) {
+        if (!empty($_COOKIE[self::COOKIE_NAME])) {
             $cookie_dao = DAOFactory::getDAO('CookieDAO');
-            $email = $cookie_dao->getEmailByCookie($_COOKIE[self::COOKIENAME]);
+            $email = $cookie_dao->getEmailByCookie($_COOKIE[self::COOKIE_NAME]);
             if ($email) {
                 $owner_dao = DAOFactory::getDAO('OwnerDAO');
                 $owner = $owner_dao->getByEmail($email);
@@ -87,6 +87,7 @@ class Session {
     /**
      * Complete login action
      * @param Owner $owner
+     * @return void
      */
     public static function completeLogin($owner) {
         SessionCache::put('user', $owner->email);
@@ -101,34 +102,34 @@ class Session {
         $cookie_dao = DAOFactory::getDAO('CookieDAO');
         $set_long_term = true;
 
-        if (!empty($_COOKIE[self::COOKIENAME])) {
-            $email = $cookie_dao->getEmailByCookie($_COOKIE[self::COOKIENAME]);
+        if (!empty($_COOKIE[self::COOKIE_NAME])) {
+            $email = $cookie_dao->getEmailByCookie($_COOKIE[self::COOKIE_NAME]);
             $set_long_term = $email != $owner->email;
         }
 
         if ($set_long_term) {
             $cookie = $cookie_dao->generateForEmail($owner->email);
             if (!headers_sent()) {
-                setcookie(self::COOKIENAME, $cookie, time()+(60*60*24*365*10), '/', self::getCookieDomain());
+                setcookie(self::COOKIE_NAME, $cookie, time()+(60*60*24*365*10), '/', self::getCookieDomain());
             }
         }
     }
 
     /**
-     * Log out and ensure that long-term cookie is killed since the user explicitly logged out.
+     * Log out and kill long-term cookie.
+     * @return void
      */
     public static function logout() {
         SessionCache::unsetKey('user');
         SessionCache::unsetKey('user_is_admin');
 
-        if (!empty($_COOKIE[self::COOKIENAME])) {
+        if (!empty($_COOKIE[self::COOKIE_NAME])) {
             if (!headers_sent()) {
-                setcookie(self::COOKIENAME, '', time() - 60*60*24, '/', self::getCookieDomain());
+                setcookie(self::COOKIE_NAME, '', time() - 60*60*24, '/', self::getCookieDomain());
             }
             $cookie_dao = DAOFactory::getDAO('CookieDAO');
-            $cookie_dao->deleteByCookie($_COOKIE[self::COOKIENAME]);
+            $cookie_dao->deleteByCookie($_COOKIE[self::COOKIE_NAME]);
         }
-
     }
 
     /**

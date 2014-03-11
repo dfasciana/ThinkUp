@@ -29,25 +29,25 @@
  */
 interface CookieDAO {
     /**
-     * Generate a Cookie for a give Owner Email
+     * Generate a unique cookie for an owner email.
      * @param str $email Email for which to generate cookie
      * @return str Cookie generated
      */
     public function generateForEmail($email);
     /**
-     * Delete all cookies for a given email
+     * Delete all cookies for a given email.
      * @param str $email Who are we deleting the cookies for?
      * @return bool Did we delete them?
      */
     public function deleteByEmail($email);
     /**
-     * Delete a given cookie
+     * Delete a given cookie.
      * @param str $cookie What cookie record to delete
      * @return bool Did we delete it?
      */
     public function deleteByCookie($cookie);
     /**
-     * Get email associated with a cookie
+     * Get email associated with a cookie.
      * @param str $cookie Cookie we are attempting to find.
      * @return str Associated email or null
      */

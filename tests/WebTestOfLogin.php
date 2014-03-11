@@ -49,7 +49,7 @@ class WebTestOfLogin extends ThinkUpWebTestCase {
 
         $this->get($this->url.'/dashboard.php');
         $this->assertNoText('Logged in as admin: '.$email);
-        $this->getBrowser()->setCookie(Session::COOKIENAME, $cookie);
+        $this->getBrowser()->setCookie(Session::COOKIE_NAME, $cookie);
 
         $this->get($this->url.'/dashboard.php');
         $this->assertText('Logged in as admin: '.$email);
@@ -71,7 +71,7 @@ class WebTestOfLogin extends ThinkUpWebTestCase {
         "ThinkUp");
         $this->assertText('Logged in as admin: '.$email);
 
-        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIENAME);
+        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIE_NAME);
         $deleted = $cookie_dao->deleteByEmail($email);
         $this->assertTrue($deleted);
     }

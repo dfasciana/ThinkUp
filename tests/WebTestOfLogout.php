@@ -58,10 +58,10 @@ class WebTestOfLogout extends ThinkUpWebTestCase {
         "ThinkUp");
         $this->assertText('Logged in as admin: '.$email);
 
-        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIENAME);
+        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIE_NAME);
 
         $this->get($this->url.'/session/logout.php');
-        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIENAME);
+        $cookie = $this->getBrowser()->getCurrentCookieValue(Session::COOKIE_NAME);
         $this->assertEqual('deleted',$cookie);
 
         $this->get($this->url.'/dashboard.php');

@@ -30,30 +30,35 @@
  */
 class CookieMySQLDAO extends PDODAO implements CookieDAO {
     /**
-     * Generate a Cookie for a give Owner Email
+     * Generate a unique cookie for an owner email.
      * @param str $email Email for which to generate cookie
      * @return str Cookie generated
      */
     public function generateForEmail($email) {
         // We generate a cookie string using hash() and the email, time, some randomness
-        // We try three times to insert it, because of the unique constraint on the table.  But once should work
+        // We try three times to insert it, because of the unique constraint on the table.  But once will work
         // 99.9999942% of the time.
         for ($i=0; $i<3; $i++) {
             $try = hash('sha256', (time() . $email . mt_rand()));
             $q = "INSERT INTO #prefix#cookies (owner_email, cookie) VALUES (:email, :cookie)";
             $vars = array( ':email' => $email, ':cookie' => $try);
             if ($this->profiler_enabled) { Profiler::setDAOMethod(__METHOD__); }
-            $res = $this->execute($q, $vars);
-            if ($this->getInsertCount($res) > 0) {
-                $cookie = $try;
-                break;
+            try {
+                $res = $this->execute($q, $vars);
+                if ($this->getInsertCount($res) > 0) {
+                    $cookie = $try;
+                    break;
+                }
+            } catch (PDOException $e) {
+                $try = null;
+                //do nothing, loop will come back around
             }
         }
         return $cookie;
     }
 
     /**
-     * Delete all cookies for a given email
+     * Delete all cookies for a given email.
      * @param str $email Who are we deleting the cookies for?
      * @return bool Did we delete them?
      */
@@ -66,7 +71,7 @@ class CookieMySQLDAO extends PDODAO implements CookieDAO {
     }
 
     /**
-     * Delete a given cookie
+     * Delete a given cookie.
      * @param str $cookie What cookie record to delete
      * @return bool Did we delete it?
      */
@@ -79,7 +84,7 @@ class CookieMySQLDAO extends PDODAO implements CookieDAO {
     }
 
     /**
-     * Get email associated with a cookie
+     * Get email associated with a cookie.
      * @param str $cookie Cookie we are attempting to find.
      * @return str Associated email or null
      */

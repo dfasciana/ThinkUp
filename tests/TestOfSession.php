@@ -69,7 +69,7 @@ class TestOfSession extends ThinkUpUnitTestCase {
         $cookie_dao = DAOFactory::getDAO('CookieDAO');
         $cookie = $cookie_dao->generateForEmail($email);
 
-        $_COOKIE[Session::COOKIENAME] = $cookie;
+        $_COOKIE[Session::COOKIE_NAME] = $cookie;
         $this->assertTrue(Session::isLoggedIn());
         $this->assertEqual(Session::getLoggedInUser(), 'me@example.com');
     }
@@ -202,7 +202,7 @@ class TestOfSession extends ThinkUpUnitTestCase {
         $email = 'me@example.com';
         $cookie_dao = DAOFactory::getDAO('CookieDAO');
         $cookie = $cookie_dao->generateForEmail($email);
-        $_COOKIE[Session::COOKIENAME] = $cookie;
+        $_COOKIE[Session::COOKIE_NAME] = $cookie;
         $this->simulateLogin($email, true);
         $session = new Session();
         $this->assertTrue(Session::isLoggedIn());
